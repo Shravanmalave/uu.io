@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teddy Day for Arya 🧸</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+body{
+background:linear-gradient(#0b1026,#1b1f3b);
+color:#fff;
+overflow:hidden}
+
+/* COMMON */
+.page{
+width:100vw;height:100vh;
+display:none;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px}
+.page.active{display:flex}
+.btn{
+margin-top:25px;
+padding:12px 28px;
+border:none;border-radius:30px;
+background:#ff9bb3;
+color:#000;font-weight:600;
+cursor:pointer}
+
+/* STARS */
+.stars span{
+position:absolute;
+width:3px;height:3px;
+background:white;
+border-radius:50%;
+animation:starMove 10s linear infinite}
+@keyframes starMove{
+from{transform:translateY(100vh)}
+to{transform:translateY(-10vh)}}
+
+/* MOON */
+.moon{
+position:absolute;top:50px;right:30px;
+width:70px;height:70px;
+border-radius:50%;
+background:#fff7cc;
+box-shadow:0 0 20px #fff;
+animation:moonBlink 3s infinite}
+@keyframes moonBlink{
+0%,100%{opacity:1}
+50%{opacity:0.6}}
+
+/* GLITTER NAME */
+.name{
+font-family:Pacifico;
+font-size:38px;
+background:linear-gradient(90deg,#ffb6c1,#fff,#ffb6c1);
+background-size:200%;
+-webkit-background-clip:text;
+color:transparent;
+animation:glitter 3s infinite}
+@keyframes glitter{
+from{background-position:0%}
+to{background-position:200%}}
+
+/* FLOATING TEDDIES */
+.teddy-float span{
+position:absolute;
+font-size:26px;
+animation:floatUp 8s linear infinite}
+@keyframes floatUp{
+from{transform:translateY(100vh);opacity:0}
+to{transform:translateY(-10vh);opacity:1}}
+
+/* HUG */
+.hug{display:flex;gap:20px;margin:25px}
+.hug div{
+font-size:60px;
+animation:hug 1.5s infinite alternate}
+@keyframes hug{
+from{transform:translateX(0)}
+to{transform:translateX(12px)}}
+
+/* PHOTO */
+.photo{
+width:220px;border-radius:20px;
+box-shadow:0 0 25px #ff9bb3}
+
+/* LETTER */
+.letter{
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:15px;
+max-width:360px;
+line-height:1.6;
+animation:fadeIn 2s}
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1}}
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<div class="stars">
+<span style="left:10%"></span><span style="left:20%"></span>
+<span style="left:35%"></span><span style="left:50%"></span>
+<span style="left:65%"></span><span style="left:80%"></span>
+<span style="left:90%"></span>
+</div>
+
+<!-- PAGE 1 -->
+<section class="page active" id="p1">
+<div class="moon"></div>
+
+<div class="teddy-float">
+<span style="left:10%">🧸</span>
+<span style="left:30%;animation-delay:2s">🧸</span>
+<span style="left:50%;animation-delay:4s">🧸</span>
+<span style="left:70%;animation-delay:1s">🧸</span>
+<span style="left:90%;animation-delay:3s">🧸</span>
+</div>
+
+<h1>Happy Teddy Day</h1>
+<div class="name">Arya ✨</div>
+
+<div class="hug">
+<div>🧸</div><div>🧸</div>
+</div>
+
+<p>My heart sends you a warm teddy hug 🤍</p>
+<button class="btn" onclick="go(2)">Next ➜</button>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="p2">
+<h2>Just for You 🧸</h2>
+
+<img src="teddy.jpeg" class="photo" alt="Teddy">
+
+<p style="margin-top:15px">
+“Some hugs are felt even from miles away.”  
+<br>— That’s you, Arya 💫
+</p>
+
+<button class="btn" onclick="go(3)">Next ➜</button>
+<button class="btn" onclick="go(1)" style="margin-top:10px">⬅ Back</button>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="p3">
+<h2>From My Heart 💌</h2>
+
+<div class="letter">
+Arya,<br><br>
+We’ve completed one beautiful month together 🤍  
+Even in this long-distance, you matter to me more than words.  
+I care for you deeply, miss you always, and pray to God  
+that this bond stays pure, calm, and forever.<br><br>
+I don’t want moments…  
+I want a lifetime with you 🌸<br><br>
+— Yours lovingly,<br>
+<b>Shravan Swagary</b>
+</div>
+
+<button class="btn" onclick="go(1)">⬅ Start Again</button>
+</section>
+
+<script>
+function go(n){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'))
+document.getElementById('p'+n).classList.add('active')
+}
+</script>
+
+</body>
+</html>
